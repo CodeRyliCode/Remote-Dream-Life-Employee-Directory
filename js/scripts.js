@@ -30,43 +30,29 @@ searchContainer.append(searchForm);
 
 let gallery = document.getElementById('gallery');
 
-let cardDiv = document.createElement('div');
-cardDiv.classList.add('card');
-gallery.append(cardDiv);
 
-let cardimgContainer = document.createElement('div');
-cardimgContainer.classList.add('card-img-container');
-cardDiv.append(cardimgContainer);
-
-
-let img = document.createElement('img');
-img.classList.add('card-img');
-img.src = "https://placehold.it/90x90";
-img.alt = "profile picture";
-cardimgContainer.append(img);
-
-
-let cardinfoDiv = document.createElement('div');
-cardinfoDiv.classList.add('card-info-container');
-cardDiv.append(cardinfoDiv);
+//helper function for adding employee cards to DOM
+const addCards = function addCards() {
+    const employeeCards= gallery.insertAdjacentHTML('beforeend', ` <div class="card">
+    <div class="card-img-container">
+        <img class="card-img" src="https://placehold.it/90x90" alt="profile picture">
+    </div>
+    <div class="card-info-container">
+        <h3 id="name" class="card-name cap">first last</h3>
+        <p class="card-text">email</p>
+        <p class="card-text cap">city, state</p>
+    </div>
+    </div>`)
+  return employeeCards;
+  };
 
 
-let h3 = document.createElement('h3');
-h3.setAttribute("id", "name");
-h3.classList.add('card-name', 'cap');
-h3.textContent = "first last";
-cardinfoDiv.append(h3);
 
-let p1 = document.createElement('p');
-p1.classList.add('card-text');
-p1.textContent = 'email';
-cardinfoDiv.append(p1);
+  //for loop will call function 12 times adding 12 employeeCards to DOM
+  for(let i =0; i < 12; i++) {
+    addCards();
+  }
 
-
-let p2 = document.createElement('p');
-p2.classList.add('card-text', 'cap');
-p2.textContent = 'city, state';
-cardinfoDiv.append(p2);
 
 
 
@@ -101,11 +87,11 @@ modalImg.src = "https://placehold.it/125x125";
 modalImg.alt = "profile picture";
 modalinfoDiv.append(modalImg);
 
-let secondH3 = document.createElement('h3');
-secondH3.setAttribute("id", "name");
-secondH3.classList.add('modal-name', 'cap');
-secondH3.textContent = "name";
-modalinfoDiv.append(secondH3);
+let h3 = document.createElement('h3');
+h3.setAttribute("id", "name");
+h3.classList.add('modal-name', 'cap');
+h3.textContent = "name";
+modalinfoDiv.append(h3);
 
 let pOne = document.createElement('p');
 pOne.classList.add('modal-text');
