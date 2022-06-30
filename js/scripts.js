@@ -27,7 +27,7 @@ searchForm.append(submitInput);
 searchContainer.append(searchForm);
 
 
-
+//Targeting the gallery div
 let gallery = document.getElementById('gallery');
 
 
@@ -58,6 +58,8 @@ const addCards = function addCards() {
 
 
 
+
+  
 let body = document.getElementsByTagName('body');
 let modalcontainerDiv = document.createElement('div');
 modalcontainerDiv.classList.add('modal-container');
@@ -76,6 +78,9 @@ modalDiv.append(button);
 let strong = document.createElement('strong');
 strong.textContent = 'X';
 button.append(strong);
+
+
+
 
 let modalinfoDiv = document.createElement('div');
 modalinfoDiv.classList.add('modal-info-container');
@@ -124,3 +129,12 @@ modalinfoDiv.append(pFive);
 
 
 
+const xhr = new XMLHttpRequest();
+xhr.onreadystatechange = function () {
+ if(xhr.readyState === 4) {
+let employees = JSON.parse(xhr.responseText);
+let statusHTML = '<ul class="bulleted">';
+ }
+};
+xhr.open('GET', 'https://randomuser.me/api/');
+xhr.send();
