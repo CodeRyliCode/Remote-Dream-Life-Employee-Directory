@@ -90,4 +90,25 @@ function generateResults(employees) {
   </div>
   `;
     document.body.insertAdjacentHTML("beforeend", modalHTML);
-}
+
+
+  
+    const closeModal = document.getElementById("modal-close-btn");
+  
+  // When the X button is clicked the lastElementChild(modal) will be removed
+    closeModal.addEventListener("click", (e) => {
+      document.body.removeChild(document.body.lastElementChild);
+    });
+  }
+  
+  
+  
+    /* When an employee card is clicked , the openModal function will display the specific information asked for 
+    of the employee at the currentIndex*/
+  gallery.addEventListener("click", (e) => {
+    const card = e.target.closest(".card");
+    console.log(card);
+    const index = card.getAttribute("data-index");
+    currentIndex = index;
+    openModal(currentIndex);
+  });
