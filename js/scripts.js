@@ -54,4 +54,17 @@ function generateResults(employees) {
  }
  
 
- 
+ function openModal(index) {
+/*We are using object destructuring to access the properties we need from the specific employee indexed array of objects. */
+    const {
+        dob,
+        name,
+        email,
+        phone,
+        location: { city, street, state, postcode },
+        picture,
+      } = employees[index];
+//Getting the correct phone format and dob format that is needed
+  const correctphoneFormat = phone.replace(/-/,' ');
+    let date = new Date(dob.date);
+    }
