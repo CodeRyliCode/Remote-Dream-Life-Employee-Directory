@@ -67,4 +67,27 @@ function generateResults(employees) {
 //Getting the correct phone format and dob format that is needed
   const correctphoneFormat = phone.replace(/-/,' ');
     let date = new Date(dob.date);
-    }
+    
+
+
+  const modalHTML = `
+  <div class="modal-container">
+      <div class="modal">
+      <button type="button" id="modal-close-btn" class="modal-close-btn"><strong>X</strong></button>
+      <div class="modal-info-container">
+          <img class="modal-img" src="${picture.large}" alt="profile picture">
+          <h3 id="name" class="modal-name cap">${name.first} ${name.last}</h3>
+          <p class="modal-text">${email}</p>
+          <p class="modal-text cap">${city}</p>
+          <hr>
+          <p class="modal-text">${correctphoneFormat}</p>
+          <p class="modal-text">${street.number} ${
+      street.name
+    }, ${city}, ${state} ${postcode}</p>
+          <p class="modal-text">Birthday: ${date.getMonth()}/${date.getDate()}/${date.getFullYear()}
+          </p>
+      </div>
+  </div>
+  `;
+    document.body.insertAdjacentHTML("beforeend", modalHTML);
+}
